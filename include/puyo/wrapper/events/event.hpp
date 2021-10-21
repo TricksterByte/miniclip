@@ -9,10 +9,7 @@
 
 #include "base_event.hpp"
 #include "event_type.hpp"
-#include "keyboard_event.hpp"
 #include "quit_event.hpp"
-#include "user_event.hpp"
-#include "window_event.hpp"
 
 namespace puyo
 {
@@ -144,10 +141,7 @@ namespace puyo
 		private:
 			using data_type = std::variant<
 				std::monostate,
-				keyboard_event,
-				quit_event,
-				user_event,
-				window_event>;
+				quit_event>;
 
 			SDL_Event _event{};
 			data_type _data{};
@@ -158,22 +152,6 @@ namespace puyo
 				{
 				case event_type::quit:
 					_data.emplace<quit_event>(_event.quit);
-					break;
-
-				case event_type::window:
-					_data.emplace<window_event>(_event.window);
-					break;
-
-				case event_type::system:
-					break;
-
-				case event_type::key_down:
-				case event_type::key_up:
-					_data.emplace<keyboard_event>(_event.key);
-					break;
-
-				case event_type::user:
-					_data.emplace<user_event>(_event.user);
 					break;
 
 				default:

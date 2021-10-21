@@ -151,6 +151,7 @@ namespace puyo
 	{
 		sys::reset_entites(_coord, _grid, _falling, _chains, _pair, _score);
 		_state = _game_state::pair;
+		_paused = false;
 		_init_game();
 	}
 }

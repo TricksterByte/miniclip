@@ -55,7 +55,7 @@ target_link_libraries(${PUYO_LIB_TARGET}
     ${SDL2_TTF_LIBRARIES})
 
 add_executable(${PUYO_EXE_TARGET}
-    main/main.cpp "include/puyo/game/components/gameplay/score.hpp" "include/puyo/game/systems/input/handle_general_input.hpp" "include/puyo/game/systems/gameplay/check_lose.hpp" "include/puyo/game/systems/general/reset_entities.hpp")
+    main/main.cpp)
 
 target_link_libraries(${PUYO_EXE_TARGET}
     PUBLIC ${PUYO_LIB_TARGET})
